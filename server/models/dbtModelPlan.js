@@ -4,24 +4,30 @@ const Schema = mongoose.Schema;
 
 export const PlanSchema = new Schema({
 
+    // MongoDB will automatically
+    // add a primary key column of "_id"
+
     id: {
         type: Number,
-        required: 'Enter an id'
+        required: [ true, 'Enter an id']
     },
     title: {
         type: String,
-        required: 'Enter a title'
+        required: [ true, 'Enter a title'],
+        maxlength: [ 60, 'Must be 60 characters or less in length.']
     },
     exams: {
         type: String,
-        required: 'Enter the number of exams under this plan'
+        required: [ true, 'Enter the number of exams under this plan']
     },
     duration: {
         type: String,
-        required: 'Enter a description of the duration of the plan, in months'
+        required: [true, 'Enter a description of the duration of the plan, in months'],
+        maxlength: [ 20, 'Must be 20 characters or less in length.']
     },
     price: {
-        type: Number
+        type: Number,
+        required: false
     },
     created_date: {
         type: Date,

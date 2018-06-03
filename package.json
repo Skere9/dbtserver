@@ -5,11 +5,15 @@
     "main": "index.js",
     "scripts": {
       "test": "echo \"No tests created yet\"",
-      "start": "nodemon ./index.js --exec babel-node -e js"
+      "prestart": "start mongod",
+      "start": "nodemon ./index.js --exec babel-node -e js",
+      "poststop": "mongo admin --eval 'db.shutdownServer()'> /dev/null"
     },
     "author": "Steve OHearn",
     "license": "ISC",
     "dependencies": {
+      "body-parser": "^1.18.3",
+      "cors": "^2.8.4",
       "express": "^4.16.3",
       "mongoose": "^4.11.10",
       "nodemon": "^1.12.0"
