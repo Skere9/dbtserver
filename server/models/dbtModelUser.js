@@ -49,7 +49,7 @@ export const UserSchema = new Schema({
     },
     displayLoggedInMessage: {
         type: Boolean,
-        default: false,
+        default: true,
         required: false
     },
     created_date: {
