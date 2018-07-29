@@ -20,9 +20,9 @@ export const signIn = (req, res) => {
     // by username
     // and password
     // TODO: IN WORK
-    // console.log('**************************************************************************************');
-    // console.log(req.params.userName);
-    // console.log(req.params.passWord);
+    console.log('**************************************************************************************');
+    console.log(req.params.userName);
+    console.log(req.params.passWord);
     User.findOne({ 'userName': req.params.userName, 'passWord': req.params.passWord }, 'userName passWord', function (err, user) {
         let foundIt = false;
         if (err) {
@@ -33,7 +33,6 @@ export const signIn = (req, res) => {
         if (user) {
             foundIt = true;
             theAnswer = user;
-                
         } else {
             foundIt = false;
             theAnswer = { _id: 1, message: 'Failed login attempt.' };
@@ -55,6 +54,8 @@ export const signIn = (req, res) => {
                 }
                 res.json(user);
             })
+        } else {
+            res.send(theAnswer);
         }
     });
     console.log('Remember - this executes before the end.');

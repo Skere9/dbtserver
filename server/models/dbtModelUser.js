@@ -52,6 +52,11 @@ export const UserSchema = new Schema({
         default: true,
         required: false
     },
+    role: {
+        type: String,
+        default: 'VISITOR',
+        required: false
+    },
     created_date: {
         type: Date,
         default: Date.now
